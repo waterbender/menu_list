@@ -8,14 +8,25 @@
 
 import Foundation
 
+let NSTotalCostDidChange = "NSTotalCostDidChange";
+let NSTotalCostUserInfoKey = "NSTotalCostUserInfoKey"
+
 class ShoppingCart {
 
-    private var _fullPrice : Int = 0
-    var count : Int {
+    private var _fullPrice : Double = 0
+    var count : Double {
         set {
+      
+            let dictionary = [NSTotalCostUserInfoKey:newValue]
+            NSNotificationCenter.defaultCenter().postNotificationName(NSTotalCostDidChange, object: nil, userInfo: dictionary)
+            
             _fullPrice = newValue
+
         }
-        get { return _fullPrice }
+        get {
+            
+            return _fullPrice
+        }
     }
     
     var arrayOfObjects: [DishProtocol] = []
@@ -31,9 +42,10 @@ class ShoppingCart {
         return Static.instance!
     }
     
-    func addDish(product: DishProtocol, count: Int) {
+    func addDish(product: DishProtocol, countT: Int) {
         
-        for _ in 0..<count {
+        for _ in 0..<countT {
+            self.count = self.count + product.price
             arrayOfObjects.append(product)
         }
         

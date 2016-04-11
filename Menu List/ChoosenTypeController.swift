@@ -9,21 +9,23 @@
 import UIKit
 import Foundation
 
+
 class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var fullCart: UILabel!
+    @IBOutlet weak var bootomView: UIView!
     
     var currentlyOpenedDishes: TypeOfDish?
     var storedOffsets = [Int: CGFloat]()
     
     override func viewDidLoad() {
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadData), name: NSTotalCostDidChange, object: nil)
+        
         let barAppearace = UIBarButtonItem.appearance()
         barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(-160, -160), forBarMetrics:UIBarMetrics.Default)
         ShoppingCart.sharedInstance
-        
-
-
     }
     
     //MARK: UITableViewDelegate
@@ -31,8 +33,17 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
+
     
-    //MARK: UITableViewDataSource
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        let totalRow = tableView.numberOfRowsInSection(indexPath.section)
+        
+        if(indexPath.item == totalRow - 1){
+            //this is the last row in section.
+        }
+    }
+    
+    //MARK: UITableViewDataSource 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -77,6 +88,22 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
     }
     
+    
+    //MARK: Notifications
+    
+    @objc func reloadData(someValue: NSNotification) {
+        
+        guard let value = someValue.userInfo![NSTotalCostUserInfoKey] else { return }
+        
+        self.fullCart.text = "£\(value)"
+        if value as! Int > 0 {
+            self.bootomView.hidden = false
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }
 
 
@@ -110,6 +137,7 @@ extension ChoosenTypeController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
-    
 }
+
+
 

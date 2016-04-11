@@ -27,6 +27,19 @@ struct MenusData {
         third.dishDescription = defaultText
         third.consistention = [.Vegeterian]
         
+        let fourth = DishObject(nameOfDish: "Kebab Sufi Special for 1", price: 22)
+        fourth.consistention = [.ContainsNuts, .Vegeterian]
+        fourth.imageUrl = "dish2"
+        fourth.dishDescription = defaultText
+        let fifth = DishObject(nameOfDish: "Kebab Koobideh warpped in naan bread", price: 11)
+        fifth.imageUrl = "dish3"
+        fifth.dishDescription = defaultText
+        fifth.consistention = [.ContainsNuts]
+        let sixth = DishObject(nameOfDish: "Jonkary Koobideh warpped in naan bread", price: 21)
+        sixth.dishDescription = defaultText
+        sixth.consistention = [.Vegeterian]
+        
+        
         // first menu
         var firstDishes = TypeOfDish(nameOfType: "Starters")
         firstDishes.listOfDishes = []
@@ -42,7 +55,7 @@ struct MenusData {
         thirdDishes.pathToPicture = "3"
         
         var fourthDishes = TypeOfDish(nameOfType: "Chicken and Lamb Grill")
-        fourthDishes.listOfDishes = [first, second, third]
+        fourthDishes.listOfDishes = [first, second, third, fourth, fifth, sixth]
         fourthDishes.pathToPicture = "4"
         
         var fifthDishes = TypeOfDish(nameOfType: "Borshch")

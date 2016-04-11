@@ -23,6 +23,7 @@
 		EC7DFF2B1CBA4163005BF7A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7DFF2A1CBA4163005BF7A2 /* Assets.xcassets */; };
 		EC7DFF2E1CBA4163005BF7A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7DFF2C1CBA4163005BF7A2 /* LaunchScreen.storyboard */; };
 		EC7DFF361CBA4D41005BF7A2 /* OneFromMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DFF351CBA4D41005BF7A2 /* OneFromMenu.swift */; };
+		EC997A3E1CBBC9760079AE20 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC997A3D1CBBC9760079AE20 /* CartViewController.swift */; };
 		ECA9A7021CBAF31A00EB5F84 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9A7011CBAF31A00EB5F84 /* ShoppingCart.swift */; };
 		ECCC64101CBAD83900E972F3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC640F1CBAD83900E972F3 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		EC7DFF2D1CBA4163005BF7A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC7DFF2F1CBA4163005BF7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7DFF351CBA4D41005BF7A2 /* OneFromMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneFromMenu.swift; sourceTree = "<group>"; };
+		EC997A3D1CBBC9760079AE20 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		ECA9A7011CBAF31A00EB5F84 /* ShoppingCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCart.swift; path = Objects/ShoppingCart.swift; sourceTree = "<group>"; };
 		ECCC640F1CBAD83900E972F3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 				EC7DFF221CBA4163005BF7A2 /* ViewController.swift */,
 				EC49C2851CBA773D00163D61 /* MenusData.swift */,
 				EC49C2871CBA873600163D61 /* ChoosenTypeController.swift */,
+				EC997A3D1CBBC9760079AE20 /* CartViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				EC49C2761CBA6C2300163D61 /* Menu.swift in Sources */,
 				ECA9A7021CBAF31A00EB5F84 /* ShoppingCart.swift in Sources */,
 				ECCC64101CBAD83900E972F3 /* CollectionViewCell.swift in Sources */,
+				EC997A3E1CBBC9760079AE20 /* CartViewController.swift in Sources */,
 				EC49C2861CBA773D00163D61 /* MenusData.swift in Sources */,
 				EC49C27E1CBA700700163D61 /* TypeOfDish.swift in Sources */,
 				EC49C2801CBA707A00163D61 /* TypeOfDishProtocol.swift in Sources */,

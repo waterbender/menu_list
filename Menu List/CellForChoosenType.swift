@@ -17,6 +17,8 @@ class CellForChoosenType: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var numLabel: UILabel!
+
+    
     var addingDish: DishProtocol? = nil
 
     private var _count : Int = 1
@@ -38,8 +40,9 @@ class CellForChoosenType: UITableViewCell {
     }
     
     @IBAction func addToOrder(sender: AnyObject) {
-        ShoppingCart.sharedInstance.addDish(addingDish!, count: count)
+        ShoppingCart.sharedInstance.addDish(addingDish!, countT: count)
         print(ShoppingCart.sharedInstance.arrayOfObjects.count)
+        self.count = 1
     }
 }
 

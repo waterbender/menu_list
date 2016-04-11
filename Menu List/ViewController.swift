@@ -22,7 +22,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Do any additional setup after loading the view, typically from a nib.
         let data = MenusData()
         currentlyOpenedMenu = data.randomMenu()
-        
         self.title = currentlyOpenedMenu?.nameOfMenu
     }
 
