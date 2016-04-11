@@ -23,6 +23,11 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadData), name: NSTotalCostDidChange, object: nil)
         
+        if ShoppingCart.sharedInstance.count != 0 {
+            self.bootomView.hidden = false
+            self.fullCart.text = "£\(ShoppingCart.sharedInstance.count)"
+        }
+        
         let barAppearace = UIBarButtonItem.appearance()
         barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(-160, -160), forBarMetrics:UIBarMetrics.Default)
     }
@@ -33,19 +38,9 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         return false
     }
 
-    
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let totalRow = tableView.numberOfRowsInSection(indexPath.section)
-        
-        if(indexPath.item == totalRow - 1){
-            //this is the last row in section.
-        }
-    }
-    
     //MARK: UITableViewDataSource 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return currentlyOpenedDishes?.listOfDishes.count ?? 0
     }
     
@@ -63,6 +58,7 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         cell.priceLabel.text = "£ \(someObj.price)"
         cell.addingDish = someObj
         
+        
         return cell
     }
     
@@ -79,13 +75,20 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         
         guard let tableViewCell = cell as? CellForChoosenType else { return }
         tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        
+        if indexPath.row == (currentlyOpenedDishes?.listOfDishes.count)!-1 && (ShoppingCart.sharedInstance.count != 0) {
+            self.bootomView.hidden = true
+        }
     }
     
     func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         guard let tableViewCell = cell as? CellForChoosenType else { return }
-        
         storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+        
+        if indexPath.row == (currentlyOpenedDishes?.listOfDishes.count)!-1 && (ShoppingCart.sharedInstance.count != 0) {
+            self.bootomView.hidden = false
+        }
     }
     
     
@@ -101,6 +104,8 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         } else if value as! Int == 0 {
             self.bootomView.hidden = true
         }
+
+
     }
     
     deinit {
@@ -115,7 +120,6 @@ extension ChoosenTypeController: UICollectionViewDelegate, UICollectionViewDataS
         
         let array = currentlyOpenedDishes?.listOfDishes
         let dish = array![collectionView.tag] as! DishObject
-        
         let value = dish.consistention.count ?? 0
         
         return value
