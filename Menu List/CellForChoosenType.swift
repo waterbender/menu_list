@@ -41,7 +41,6 @@ class CellForChoosenType: UITableViewCell {
     
     @IBAction func addToOrder(sender: AnyObject) {
         ShoppingCart.sharedInstance.addDish(addingDish!, countT: count)
-        print(ShoppingCart.sharedInstance.arrayOfObjects.count)
         self.count = 1
     }
 }

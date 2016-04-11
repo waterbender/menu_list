@@ -29,7 +29,7 @@ class ShoppingCart {
         }
     }
     
-    var arrayOfObjects: [DishProtocol] = []
+    var dictionaryOfObjects: [String:[DishProtocol]] = [:]
     
     class var sharedInstance: ShoppingCart {
         struct Static {
@@ -45,11 +45,38 @@ class ShoppingCart {
     func addDish(product: DishProtocol, countT: Int) {
         
         for _ in 0..<countT {
+            
             self.count = self.count + product.price
-            arrayOfObjects.append(product)
+            
+            if var someArr = self.dictionaryOfObjects[product.nameOfDish] {
+                someArr.append(product)
+                self.dictionaryOfObjects[product.nameOfDish] = someArr
+            } else {
+                self.dictionaryOfObjects[product.nameOfDish] = [product]
+            }
         }
-        
     }
     
+    func removeDish(withName: String, countT: Int) {
+        
+        for _ in 0..<countT {
+            
+            if var array = self.dictionaryOfObjects[withName] {
+                
+                let product = array.first
+                array.removeFirst()
+                self.dictionaryOfObjects[withName] = array
+                
+                if array.count == 0 {
+                    self.dictionaryOfObjects[withName] = nil
+                }
+                
+                self.count = self.count - product!.price
+            }
+        }
+        
+        
+    }
+
     
 }

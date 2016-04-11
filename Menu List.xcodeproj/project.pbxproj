@@ -26,6 +26,7 @@
 		EC997A3E1CBBC9760079AE20 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC997A3D1CBBC9760079AE20 /* CartViewController.swift */; };
 		ECA9A7021CBAF31A00EB5F84 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9A7011CBAF31A00EB5F84 /* ShoppingCart.swift */; };
 		ECCC64101CBAD83900E972F3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC640F1CBAD83900E972F3 /* CollectionViewCell.swift */; };
+		ECE414771CBBD58C00CD6EC1 /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE414761CBBD58C00CD6EC1 /* OrderViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		EC997A3D1CBBC9760079AE20 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		ECA9A7011CBAF31A00EB5F84 /* ShoppingCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCart.swift; path = Objects/ShoppingCart.swift; sourceTree = "<group>"; };
 		ECCC640F1CBAD83900E972F3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		ECE414761CBBD58C00CD6EC1 /* OrderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				EC7DFF351CBA4D41005BF7A2 /* OneFromMenu.swift */,
 				EC43CC101CBA939700F35BF0 /* CellForChoosenType.swift */,
 				ECCC640F1CBAD83900E972F3 /* CollectionViewCell.swift */,
+				ECE414761CBBD58C00CD6EC1 /* OrderViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				EC49C2761CBA6C2300163D61 /* Menu.swift in Sources */,
 				ECA9A7021CBAF31A00EB5F84 /* ShoppingCart.swift in Sources */,
 				ECCC64101CBAD83900E972F3 /* CollectionViewCell.swift in Sources */,
+				ECE414771CBBD58C00CD6EC1 /* OrderViewCell.swift in Sources */,
 				EC997A3E1CBBC9760079AE20 /* CartViewController.swift in Sources */,
 				EC49C2861CBA773D00163D61 /* MenusData.swift in Sources */,
 				EC49C27E1CBA700700163D61 /* TypeOfDish.swift in Sources */,

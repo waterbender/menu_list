@@ -25,7 +25,6 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         
         let barAppearace = UIBarButtonItem.appearance()
         barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(-160, -160), forBarMetrics:UIBarMetrics.Default)
-        ShoppingCart.sharedInstance
     }
     
     //MARK: UITableViewDelegate
@@ -60,6 +59,7 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.descriptionTextView.text = someObj.dishDescription
         cell.descriptionTextView.font = UIFont(name: "Helvetica Neue", size: 14.0)
+        cell.titleLabel.text = someObj.nameOfDish
         cell.priceLabel.text = "£ \(someObj.price)"
         cell.addingDish = someObj
         
@@ -98,6 +98,8 @@ class ChoosenTypeController: UIViewController, UITableViewDelegate, UITableViewD
         self.fullCart.text = "£\(value)"
         if value as! Int > 0 {
             self.bootomView.hidden = false
+        } else if value as! Int == 0 {
+            self.bootomView.hidden = true
         }
     }
     
@@ -121,7 +123,6 @@ extension ChoosenTypeController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
-        
         let key = "cellTasteIdentifier"
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(key, forIndexPath: indexPath) as! CollectionViewCell
